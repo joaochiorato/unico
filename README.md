@@ -1,16 +1,42 @@
-# curtume_prototipo
+# Protótipo Curtume - ERP Web + Coletor
 
-A new Flutter project.
+Este projeto contém um protótipo em Flutter com:
 
-## Getting Started
+- ERP Web (Roteiro Produtivo + Ordem de Produção) – entrada padrão em `lib/main.dart`
+- Coletor Mobile (Apontamento de Produção) – entrada em `lib/main_coletor.dart`
 
-This project is a starting point for a Flutter application.
+## Como usar
 
-A few resources to get you started if this is your first Flutter project:
+1. Crie uma pasta no seu ambiente de desenvolvimento e extraia o conteúdo deste projeto.
+2. Dentro da pasta do projeto, execute:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```bash
+flutter pub get
+flutter create .
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+O comando `flutter create .` irá gerar as pastas de plataforma (android, web, windows, etc.) se ainda não existirem.
+
+### Executar ERP (Web ou Desktop)
+
+```bash
+flutter run -d chrome
+# ou
+flutter run -d windows
+```
+
+O ERP usa `lib/main.dart` como entry point.
+
+### Executar Coletor (Mobile ou Web)
+
+```bash
+flutter run -t lib/main_coletor.dart -d chrome
+# ou apontando para um dispositivo Android
+flutter run -t lib/main_coletor.dart -d <id_do_dispositivo>
+```
+
+Os dados são todos mockados em memória, seguindo o fluxo do teste de mesa:
+
+- Produto CSA001 + Classifi 7
+- Roteiro herdado do artigo PRP001 – QUARTZO
+- ORP com chave_fato simulada `XYD459939`
